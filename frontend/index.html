@@ -1,40 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Deposit App</title>
-<script src="https://cdn.jsdelivr.net/npm/ethers@6.6.2/dist/ethers.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <title>ETH Deposit App</title>
+   <script src="https://cdn.jsdelivr.net/npm/ethers@6.16.0/dist/ethers.umd.min.js"></script>
+  <script type="module" src="app.js"></script>
 </head>
-
 <body>
+  <h2>Deposit ETH</h2>
 
-<h2>Deposit ETH</h2>
+  <button onclick="connectWallet()">Connect Wallet</button>
+  <br><br>
 
-<button onclick="connectWallet()">
-Connect Wallet
-</button>
+  <input id="amount" placeholder="ETH amount">
+  <button onclick="deposit()">Deposit</button>
+  <br><br>
 
-<br><br>
+  <input id="withdrawAmount" placeholder="ETH to withdraw">
+  <button onclick="withdraw()">Withdraw</button>
 
-<input id="amount" placeholder="ETH amount">
+  <h3 id="balance">Balance:</h3>
 
-<button onclick="deposit()">
-Deposit
-</button>
+  <h3>Events:</h3>
+  <div id="events"></div>
 
-<input id="withdrawAmount" type="text" placeholder="ETH to withdraw" />
-<button onclick="withdraw()">Withdraw</button>
+  <script type="module">
+    import * as app from './app.js';
 
-<h3 id="balance">
-Balance:
-</h3>
-
-<h3>
-Events:
-</h3>
-
-<div id="events"></div>
-
-<script src="app.js"></script>
-
+    window.connectWallet = app.connectWallet;
+    window.deposit = app.deposit;
+    window.withdraw = app.withdraw;
+  </script>
 </body>
 </html>
